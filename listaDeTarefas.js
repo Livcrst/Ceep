@@ -1,4 +1,5 @@
-const novaTarefa = document.querySelector('[data-form-button]');
+(() => {
+    const novaTarefa = document.querySelector('[data-form-button]');
 const criarTarefa = (evento) => {
 
     evento.preventDefault();
@@ -25,10 +26,19 @@ const BotaoConcluir = () => {
 
     const botaoConcluir = document.createElement('button');
 
-    botaoConcluir.addEventListener('click', () => {
-        
-        console.log("TESTE: fui clicado")
-    });
+    botaoConcluir.classList.add('check-button');
+    botaoConcluir.innerText = 'Concluir';
+
+    botaoConcluir.addEventListener('click', Concluir);
 
     return botaoConcluir;
 };
+
+const Concluir = (evento) => {
+
+    const botaoConcluir = evento.target;
+    const tarefaCompleta = botaoConcluir.parentElement;
+
+    tarefaCompleta.classList.toggle('done');
+}
+}) ();
