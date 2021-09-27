@@ -16,6 +16,7 @@ const criarTarefa = (evento) => {
     tarefa.innerHTML = conteudo;
 
     tarefa.appendChild(BotaoConcluir());
+    tarefa.appendChild(BotaoExcluir());
     Lista.appendChild(tarefa);
     input.value = " "; // para limpar a caixa de texto da entrada;
 };
@@ -40,5 +41,22 @@ const Concluir = (evento) => {
     const tarefaCompleta = botaoConcluir.parentElement;
 
     tarefaCompleta.classList.toggle('done');
+}
+
+BotaoExcluir = () => {
+    const botaoExcluir = document.createElement('button');
+    botaoExcluir.innerText = 'Excluir';
+
+    botaoExcluir.addEventListener('click', excluir);
+
+    return botaoExcluir;
+
+}
+const excluir =  (evento) => {
+    const botaoExcluir = evento.target;
+    const exclusao = botaoExcluir.parentElement;
+    exclusao.remove();
+
+    return botaoExcluir;
 }
 }) ();
